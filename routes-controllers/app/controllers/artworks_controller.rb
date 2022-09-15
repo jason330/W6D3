@@ -16,7 +16,11 @@ class ArtworksController < ApplicationController
     end
 
     def index
-        render json: Artwork.all
+        @user = User.find_by(id: params[:user_id])
+        # @shared_artworks = ArtworkShare.find_by(id: params[:])
+
+        # render json: @user.artworks, @user.shared_artworks
+        render json: @user, include: [:artworks, :shared_artworks]
     end
 
     def show 
