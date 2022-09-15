@@ -21,6 +21,7 @@ class ArtworksController < ApplicationController
 
         # render json: @user.artworks, @user.shared_artworks
         render json: @user, include: [:artworks, :shared_artworks]
+        # render json: Artwork.artworks_for_user_id(params[:user_id])
     end
 
     def show 

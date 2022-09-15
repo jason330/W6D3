@@ -33,5 +33,10 @@ ApplicationRecord.transaction do
     ArtworkShare.create!(artwork_id: a2.id, viewer_id: u1.id)
     ArtworkShare.create!(artwork_id: a5.id, viewer_id: u1.id)
 
+    #comments
+    Comment.create!(author_id: u1.id, artwork_id: 4, body: "what crappy art")
+    Comment.create!(author_id: u2.id, artwork_id: 5, body: "beautiful art")
+    Comment.create!(author_id: u3.id, artwork_id: 6, body: "decent art")
+    Comment.create!(author_id: u3.id, artwork_id: 2, body: "acceptable art")
     puts "seeding successful"
 end

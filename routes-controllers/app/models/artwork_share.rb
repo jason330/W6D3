@@ -10,10 +10,13 @@
 #
 class ArtworkShare < ApplicationRecord
     validates :artwork_id, uniqueness: { scope: :viewer_id, message: "same artwork cannot be shared with same viewer more than once."}
-    
-    belongs_to :artwork
+
+    belongs_to :artwork,
+    inverse_of: :artwork_shares
     
     belongs_to :viewer,
     foreign_key: :viewer_id,
-    class_name: :User
+    class_name: :User,
+    inverse_of: :artwork_shares
+    
 end
