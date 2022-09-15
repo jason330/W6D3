@@ -25,5 +25,4 @@ class User < ApplicationRecord
     source: :artwork
 
 
-
 end
